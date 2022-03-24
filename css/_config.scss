@@ -1,0 +1,42 @@
+$font-stack: 'Roboto','Poppins','Nunito';
+$bg-color: rgb(255, 255, 255);
+$fore-color: rgb(55,73,87);
+$secondary-color: #ad318e;
+//$secondary-color: #502dcc;
+$alternate-color: #8fcbf5;
+$primary-color: #FCEAC5;
+$dark-color: #3A3335;
+$grad-color: linear-gradient(135deg, $secondary-color 0%, $alternate-color 60%, $primary-color 100%);
+$nav-color: #212224;
+$error-color: rgba(209, 82, 82, 0.85);
+$success-color: rgba(82, 209, 82, 0.85);
+$pend-color: rgba(209, 209, 82, 0.85);
+$info-color: rgba(82, 82, 209, 0.85);
+
+
+
+%theme-color{
+    background-color: $bg-color;
+    color: $fore-color;
+    
+}
+
+@function set-fore-color($color){
+
+    @if(lightness($color) > 70)
+    {
+        @return #333;
+    }
+    @else{
+        @return #fff;
+    }
+
+}
+
+@mixin set-bg-color($color) {
+
+    background-color: $color;
+    color: set-fore-color($color);
+    
+}
+
